@@ -1,0 +1,10 @@
+# model specific
+model_name: 'Wang2023Better_WRN-70-16'
+threshold: 0.2
+eval: 'eval_aa_cifar'
+
+# generic 
+directory_checkpoint: "models_WS/cifar10"
+batch_size: 128
+distance: "linf"
+epsilon: 0.0313725 # 8/255

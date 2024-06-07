@@ -1,0 +1,13 @@
+# model specific
+model_name: "Liu2023Comprehensive_ConvNeXt-L"
+module_name: "MeanSparse_ConvNeXt_L"
+add_custom_layer: "add_custom_layer_ConvNeXt_L"
+threshold: 0.3
+eval: 'eval_aa_imagenet'
+
+# generic 
+directory_checkpoint: "models_WS/imagenet"
+data_dir: '../../Dataset/ImageNet-1k'
+batch_size: 128
+distance: "linf"
+epsilon: 0.015686 # 4/255
