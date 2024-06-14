@@ -42,6 +42,9 @@ To regenerate the results, select the configuration file for each model and run 
 python main.py --configs configs/cifar-10/configs_Peng2023Robust_RaWideResNet-70-16.yml
 ```
 
+## Contact
+If you have any questions, feel free to contact us through email (mteymoorianf@umass.edu) or Github issues.
+
 ## References
 
 [1] ShengYun Peng, Weilin Xu, Cory Cornelius, Matthew Hull, Kevin Li, Rahul Duggal, Mansi Phute, Jason Martin, and Duen Horng Chau. Robust principles: Architectural design principles for adversarially robust cnns. In 34th British Machine Vision Conference 2023, BMVC 2023, Aberdeen, UK, November 20-24, 2023. BMVA, 2023.
@@ -51,3 +54,15 @@ python main.py --configs configs/cifar-10/configs_Peng2023Robust_RaWideResNet-70
 [3] Chang Liu, Yinpeng Dong,Wenzhao Xiang, Xiao Yang, Hang Su, Jun Zhu, Yuefeng Chen, Yuan He, Hui Xue, and Shibao Zheng. A comprehensive study on robustness of image classification models: Benchmarking and rethinking. arXiv preprint arXiv:2302.14301, 2023.
 
 [4] Francesco Croce, Maksym Andriushchenko, Vikash Sehwag, Edoardo Debenedetti, Nicolas Flammarion, Mung Chiang, Prateek Mittal, and Matthias Hein. Robustbench: a standardized adversarial robustness benchmark. arXiv preprint arXiv:2010.09670, 2020.
+
+## BibTex
+
+If you find this code or idea useful, please consider citing our related work:
+```
+@article{amini2024meansparse,
+  title={MeanSparse: Post-Training Robustness Enhancement Through Mean-Centered Feature Sparsification},
+  author={Amini, Sajjad and Teymoorianfard, Mohammadreza and Ma, Shiqing and Houmansadr, Amir},
+  journal={arXiv preprint arXiv:2406.05927},
+  year={2024}
+}
+```
