@@ -1,6 +1,6 @@
 # MeanSparse: Post-Training Robustness Enhancement Through Mean-Centered Feature Sparsification
 
-This repository contains the code to reproduce our record-breaking results in the paper “MeanSparse: Post-Training Robustness Enhancement Through Mean-Centered Feature Sparsification".
+This repository contains the code to reproduce our record-breaking results in the paper [“MeanSparse: Post-Training Robustness Enhancement Through Mean-Centered Feature Sparsification"](https://arxiv.org/pdf/2406.05927).
 
 We introduce MeanSparse, a technique that applies a mean-centered feature sparsification operator to post-process adversarially trained models. Using this operator, the MeanSparse technique effectively blocks some capacity used by adversaries without significantly impacting the model’s utility. Our empirical results demonstrate that MeanSparse sets new records in robustness for both CIFAR-10 and ImageNet datasets.
 
