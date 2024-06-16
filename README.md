@@ -57,7 +57,7 @@ If you have any questions, feel free to contact us through email (mteymoorianf@u
 
 ## BibTex
 
-If you find this code or idea useful, please consider citing our related work:
+If you find this code or idea useful, please consider citing our work:
 ```
 @article{amini2024meansparse,
   title={MeanSparse: Post-Training Robustness Enhancement Through Mean-Centered Feature Sparsification},
