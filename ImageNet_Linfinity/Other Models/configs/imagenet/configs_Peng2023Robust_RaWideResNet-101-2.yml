@@ -1,0 +1,13 @@
+# model specific
+model_name: "Peng2023Robust"
+module_name: "MeanSparse_RaWideResNet"
+add_custom_layer: "add_custom_layer_RaWideResNet"
+threshold: 0.2
+eval: 'eval_aa_imagenet'
+
+# generic 
+directory_checkpoint: "models_WS/imagenet"
+data_dir: '../../Dataset/ImageNet-1k'
+batch_size: 128
+distance: "linf"
+epsilon: 0.015686 # 4/255

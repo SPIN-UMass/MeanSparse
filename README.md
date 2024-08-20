@@ -1,23 +1,27 @@
 # MeanSparse: Post-Training Robustness Enhancement Through Mean-Centered Feature Sparsification
 
-This repository contains the code to reproduce our record-breaking results in the paper [“MeanSparse: Post-Training Robustness Enhancement Through Mean-Centered Feature Sparsification"](https://arxiv.org/pdf/2406.05927).
+This repository contains the code to reproduce our record-breaking results in the paper “MeanSparse: Post-Training Robustness Enhancement Through Mean-Centered Feature Sparsification".
 
 We introduce MeanSparse, a technique that applies a mean-centered feature sparsification operator to post-process adversarially trained models. Using this operator, the MeanSparse technique effectively blocks some capacity used by adversaries without significantly impacting the model’s utility. Our empirical results demonstrate that MeanSparse sets new records in robustness for both CIFAR-10 and ImageNet datasets.
 
-In this repository we publicly share two models on CIFAR-10 and two models on ImageNet which are imporoved versions of top ranked models on [RobustBench [4]](https://robustbench.github.io/).
+In this repository we publicly share several models on CIFAR-10, CIFAR-100, and ImageNet which are imporoved versions of top ranked models on [RobustBench [4]](https://robustbench.github.io/).
 
 ## Results & Model Weights
-We apply the MeanSparse technique to RaWideResNet [1] and WideResNet [2] models, the first and second rank models in RobustBench [4], respectively. Both methods demonstrated robustness improvement while their benign accuracy remained almost unchanged. For the ImageNet dataset, we apply MeanSparse to ConvNeXt-L [3] and RaWideResNet [1] architectures, and again we achieve improved robustness without utility loss. The complete results are summarized in the table below:
+We apply the MeanSparse technique to several top-ranked models on RobustBench [4]. The complete results are summarized in the table below:
 
 Note: We use the trained models from RobustBench [4] and generate the post-processed models using the MeanSparse technique. The robust accuracy is measured using
 [AutoAttack](https://github.com/fra31/auto-attack). The models can also be downloaded through the links.
 
 | Original Model  | Dataset| Clean (Original) | AA (Original) | Clean (with MeanSparse) | AA (with MeanSparse) |  MeanSparse integrated Model Weights |
 |-----------------|--------|:----------------:|:-------------:|:------------------:|:---------------:|:------------------------------:|
-| RaWideResNet [1]|CIFAR-10|      93.27%      |    71.07%     |      93.24%        |     72.08%      | [Sparsified_RaWideResNet_CIFAR](https://huggingface.co/MeanSparse/MeanSparse/blob/main/cifar10/Peng2023Robust_WS.pt) |
-| WideResNet [2]  |CIFAR-10|      93.26%      |    70.69%     |      93.18%        |     71.41%      | [Sparsified_WideResNet_CIFAR](https://huggingface.co/MeanSparse/MeanSparse/blob/main/cifar10/Wang2023Better_WRN-70-16_WS.pt)  |
-| ConvNeXt-L [3]  |ImageNet|      78.02%      |    58.48%     |      77.96%        |     59.64%      | [Sparsified_ConvNeXt-L_ImageNet](https://huggingface.co/MeanSparse/MeanSparse/blob/main/imagenet/Liu2023Comprehensive_ConvNeXt-L_WS.pt) |
-| RaWideResNet [1]|ImageNet|      73.58%      |    48.94%     |      73.28%        |     52.98%      | [Sparsified_RaWideResNet_ImageNet](https://huggingface.co/MeanSparse/MeanSparse/blob/main/imagenet/Peng2023Robust_WS.pt) |
+| WRN-94-16 [5]  |CIFAR-10($L_\inf$) |      93.68%      |    73.71%     |      93.63%        |     75.28%      | [Sparsified_WRN_94_16_CIFAR](https://drive.google.com/file/d/1wHkKzSD4nk6IT0uOZa23ZFXSMBSAQ7mt/view?usp=share_link) |
+| RaWRN-70-16 [1]|CIFAR-10($L_\inf$) |      93.27%      |    71.07%     |      93.27%        |     72.78%      | [Sparsified_RaWRN_70_16_CIFAR](https://drive.google.com/file/d/1y-7wjdZI_UEvtt33pDLOhw41zx_oEqIp/view?usp=share_link) |
+| WRN-70-16 [2]  |CIFAR-10($L_\inf$) |      93.26%      |    70.69%     |      93.18%        |     71.41%      | [Sparsified_WRN_70_16_CIFAR](https://drive.google.com/file/d/1aaLxiSTViNB3hyG1UpOKj9Rw_bNeBUTk/view?usp=share_link)  |
+| WRN-70-16 [2]  |CIFAR-10($L_2$) |      95.54%      |    84.97%     |      95.49%        |     87.28%      | [Sparsified_WRN_70_16_CIFAR_L2](https://drive.google.com/file/d/1pBkO7aBB5CsoDHT2yaJVNv1vTni5yRGu/view?usp=share_link)  |
+| WRN-70-16 [2]  |CIFAR-100($L_\inf$)|      75.22%      |    42.67%     |      75.17%        |     44.78%      | [Sparsified_WRN_70_16_CIFAR_100](https://drive.google.com/file/d/1VYlfRrkaKnsaZqunCQ7K-iR8PXFYT6CL/view?usp=share_link)  |
+| Swin-L [3]      |ImageNet($L_\inf$)|      78.92%      |    59.56%     |      78.86%        |     62.12%      | [Sparsified_Swin_L_ImageNet](https://drive.google.com/file/d/1hL_cFQxNa7ZHKJ-f2CrcbxBBy8TTofW3/view?usp=share_link) |
+| ConvNeXt-L [3]  |ImageNet($L_\inf$)|      78.02%      |    58.48%     |      77.96%        |     59.64%      | [Sparsified_ConvNeXt-L_ImageNet](https://drive.google.com/file/d/1X6wihZ4Jm4Zm_O0tSgd13Bv-naAoA8hN/view?usp=share_link) |
+| RaWRN [1]|ImageNet($L_\inf$)|      73.58%      |    48.94%     |      73.28%        |     52.98%      | [Sparsified_RaWideResNet_ImageNet](https://drive.google.com/file/d/1VzGCiVEHE6lv_uU7bLvFmI4p9sQnLx6W/view?usp=share_link) |
 
 ## Requirements
 - Install or download [AutoAttack](https://github.com/fra31/auto-attack):
@@ -30,20 +34,27 @@ pip install git+https://github.com/RobustBench/robustbench.git
 ```
 
 ## Dataset
-Running the code will automatically download the CIFAR-10 dataset. However, the ImageNet dataset must be downloaded manually due to licensing restrictions.
+Running the code will automatically download the CIFAR-10 and CIFAR-100 datasets. However, the ImageNet dataset must be downloaded manually due to licensing restrictions.
 
 Get the download link [here](https://image-net.org/download.php) (you'll need to sign up with an academic email, and approval is automatic and immediate). Then, follow the instructions [here](https://github.com/soumith/imagenet-multiGPU.torch#data-processing) to extract the validation set into the `val` folder in a PyTorch-compatible format.
 
 Important: Update the `data_dir` arguments in the `configs` files located in the `imagenet` folder to reflect the local path of ImageNet-1k on your machine.
 
 ## Reproducing the Results
-To regenerate the results, select the configuration file for each model and run `main.py`. For example, to reproduce the results for the RaWideResNet model with the CIFAR-10 dataset, use the following command:
-```.bash
-python main.py --configs configs/cifar-10/configs_Peng2023Robust_RaWideResNet-70-16.yml
-```
+To reproduce the results for each model:
+1. Navigate to the respective directory for the model.
+2. Download the model weights from the table above.
+3. Create a models_WS directory within the model's directory.
+4. Move the downloaded weights into the models_WS directory.
 
-## Contact
-If you have any questions, feel free to contact us through email (mteymoorianf@umass.edu) or Github issues.
+For example, the directory structure for CIFAR-100 should look like this:
+```
+CIFAR100_Linfinity
+│
+└───models_WS 
+│   └───Wang2023Better_WRN-70-16_WS.pt
+```
+Finally, run the Python script that starts with AutoAttack to execute the relevant tests.
 
 ## References
 
@@ -55,14 +66,4 @@ If you have any questions, feel free to contact us through email (mteymoorianf@u
 
 [4] Francesco Croce, Maksym Andriushchenko, Vikash Sehwag, Edoardo Debenedetti, Nicolas Flammarion, Mung Chiang, Prateek Mittal, and Matthias Hein. Robustbench: a standardized adversarial robustness benchmark. arXiv preprint arXiv:2010.09670, 2020.
 
-## BibTex
-
-If you find this code or idea useful, please consider citing our work:
-```
-@article{amini2024meansparse,
-  title={MeanSparse: Post-Training Robustness Enhancement Through Mean-Centered Feature Sparsification},
-  author={Amini, Sajjad and Teymoorianfard, Mohammadreza and Ma, Shiqing and Houmansadr, Amir},
-  journal={arXiv preprint arXiv:2406.05927},
-  year={2024}
-}
-```
+[5] Bartoldson, Brian R., James Diffenderfer, Konstantinos Parasyris, and Bhavya Kailkhura. "Adversarial Robustness Limits via Scaling-Law and Human-Alignment Studies." arXiv preprint arXiv:2404.09349 (2024).
