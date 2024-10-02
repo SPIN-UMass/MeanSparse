@@ -67,3 +67,15 @@ Finally, run the Python script that starts with AutoAttack to execute the releva
 [4] Francesco Croce, Maksym Andriushchenko, Vikash Sehwag, Edoardo Debenedetti, Nicolas Flammarion, Mung Chiang, Prateek Mittal, and Matthias Hein. Robustbench: a standardized adversarial robustness benchmark. arXiv preprint arXiv:2010.09670, 2020.
 
 [5] Bartoldson, Brian R., James Diffenderfer, Konstantinos Parasyris, and Bhavya Kailkhura. "Adversarial Robustness Limits via Scaling-Law and Human-Alignment Studies." arXiv preprint arXiv:2404.09349 (2024).
+
+## BibTex
+
+If you find this code or idea useful, please consider citing our work:
+```
+@article{amini2024meansparse,
+  title={MeanSparse: Post-Training Robustness Enhancement Through Mean-Centered Feature Sparsification},
+  author={Amini, Sajjad and Teymoorianfard, Mohammadreza and Ma, Shiqing and Houmansadr, Amir},
+  journal={arXiv preprint arXiv:2406.05927},
+  year={2024}
+}
+```
